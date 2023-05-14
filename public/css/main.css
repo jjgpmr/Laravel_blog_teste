@@ -15,3 +15,13 @@ body{
 .terceiro{
     border: 3px solid black;
 }
+
+.quarto{
+    border: 3px solid black;
+}
+
+.post1{
+    background-color: gray;
+    padding: 10px;
+    margin: 10px;
+}

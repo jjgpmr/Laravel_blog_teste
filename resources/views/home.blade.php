@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Home</title>
     <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
@@ -23,6 +23,22 @@
                 <textarea name="body" placeholder="Body of the Post"></textarea>
                 <button>Save Post</button>
             </form>
+        </div>
+        <br>
+        <div class="quarto">
+            <h2>All Posts</h2>
+            @foreach ($posts as $post)
+                <div class="post1">
+                    <h3>{{$post['title']}} by {{$post->user->name}}</h3>
+                    {{$post['body']}}
+                    <p><a href="/edit-post/{{$post->id}}">Edit</a></p>
+                    <form action="/delete-post/{{$post->id}}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button>Delete</button>
+                    </form>
+                </div>
+            @endforeach
         </div>
 
         @else
